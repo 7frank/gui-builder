@@ -37,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"grapesjs": "^0.21.5",
+		"grapesjs-blocks-basic": "^1.0.2",
 		"grapesjs-preset-webpage": "^1.0.3"
 	}
 }

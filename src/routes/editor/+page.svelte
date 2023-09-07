@@ -1,9 +1,11 @@
-<script>
-import grapesjs from 'grapesjs';
+<script lang="ts">
+import grapesjs, { Editor, type AddComponentTypeOptions } from 'grapesjs';
 import  'grapesjs/dist/css/grapes.min.css';
 
 import plugin from 'grapesjs-preset-webpage';
+import basicBlocks from 'grapesjs-blocks-basic';
 import {onMount} from "svelte"
+	import { myNewComponentTypes } from './grapes-test-plugin';
 
 
 
@@ -11,7 +13,7 @@ onMount(()=>{
 	const editor = grapesjs.init({
   container : '#guiBuilder',
   // ...
-  plugins: [plugin],
+  plugins: [basicBlocks,myNewComponentTypes,plugin],
   pluginsOpts: {
     [plugin]: { /* options */ }
   }
