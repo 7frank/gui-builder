@@ -2,7 +2,7 @@ import type * as ts from 'typescript';
 import type { TransformerExtras, PluginConfig } from 'ts-patch';
 
 /** Changes string literal 'before' to 'after' */
-export default function (
+export default function transformer(
 	program: ts.Program,
 	pluginConfig: PluginConfig,
 	{ ts: tsInstance }: TransformerExtras
