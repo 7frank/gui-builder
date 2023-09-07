@@ -10,6 +10,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"plugins": [
+			{ "transform": "./src/transformers/example-transformer.ts" }
 			//{ "transform": "ts-transformer-export-default-name" },
 			//{ "transform": "./src/transformers/example-transformer.ts" }
 		]
