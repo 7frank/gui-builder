@@ -34,6 +34,7 @@
 		"svelte-check": "^3.4.3",
 		"ts-node": "^10.9.1",
 		"ts-patch": "^3.0.2",
+		"ts-transformer-export-default-name": "^0.1.0",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
 		"vite": "^4.4.2",
