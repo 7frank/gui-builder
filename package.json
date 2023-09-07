@@ -34,5 +34,9 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"grapesjs": "^0.21.5",
+		"grapesjs-preset-webpage": "^1.0.3"
+	}
 }

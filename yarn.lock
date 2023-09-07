@@ -312,6 +312,14 @@
     svelte-hmr "^0.15.3"
     vitefu "^0.2.4"
 
+"@types/backbone@^1.4.15":
+  version "1.4.15"
+  resolved "https://registry.yarnpkg.com/@types/backbone/-/backbone-1.4.15.tgz#505323ab8fea11ecaec74cb3f73d569a4e5eb779"
+  integrity sha512-WWeKtYlsIMtDyLbbhkb96taJMEbfQBnuz7yw1u0pkphCOtksemoWhIXhK74VRCY9hbjnsH3rsJu2uUiFtnsEYg==
+  dependencies:
+    "@types/jquery" "*"
+    "@types/underscore" "*"
+
 "@types/chai-subset@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@types/chai-subset/-/chai-subset-1.3.3.tgz#97893814e92abd2c534de422cb377e0e0bdaac94"
@@ -334,6 +342,13 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.1.tgz#aa22750962f3bf0e79d753d3cc067f010c95f194"
   integrity sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==
 
+"@types/jquery@*":
+  version "3.5.18"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.5.18.tgz#2a4979866954e601361ddc62ea304c9e46311b77"
+  integrity sha512-sNm7O6LECFhHmF+3KYo6QIl2fIbjlPYa0PDgDQwfOaEJzwpK20Eub9Ke7VKkGsSJ2K0HUR50S266qYzRX4GlSw==
+  dependencies:
+    "@types/sizzle" "*"
+
 "@types/json-schema@^7.0.9":
   version "7.0.12"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.12.tgz#d70faba7039d5fca54c83c7dbab41051d2b6f6cb"
@@ -353,6 +368,16 @@
   version "7.5.1"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.1.tgz#0480eeb7221eb9bc398ad7432c9d7e14b1a5a367"
   integrity sha512-cJRQXpObxfNKkFAZbJl2yjWtJCqELQIdShsogr1d2MilP8dKD9TE/nEKHkJgUNHdGKCQaf9HbIynuV2csLGVLg==
+
+"@types/sizzle@*":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.3.tgz#ff5e2f1902969d305225a047c8a0fd5c915cebef"
+  integrity sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==
+
+"@types/underscore@*":
+  version "1.11.9"
+  resolved "https://registry.yarnpkg.com/@types/underscore/-/underscore-1.11.9.tgz#76a071d27e544e422dbf00f956818b1057f377b2"
+  integrity sha512-M63wKUdsjDFUfyFt1TCUZHGFk9KDAa5JP0adNUErbm0U45Lr06HtANdYRP+GyleEopEoZ4UyBcdAC5TnW4Uz2w==
 
 "@typescript-eslint/eslint-plugin@^5.45.0":
   version "5.62.0"
@@ -560,6 +585,28 @@ axobject-query@^3.2.1:
   dependencies:
     dequal "^2.0.3"
 
+backbone-undo@^0.2.5:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/backbone-undo/-/backbone-undo-0.2.6.tgz#00c4d78ab2425c18a76f2a96a1eee181560a5d8d"
+  integrity sha512-AsfpNiljLXlk7TcffDUu3EAUq7CxWbyTNwARWrql5XTzN4vh6WzEEBZYaKK4kTTz+iW1tSzqUooaGRIwO83kWA==
+  dependencies:
+    backbone ">=1.0.0"
+    underscore ">=1.4.4"
+
+backbone@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/backbone/-/backbone-1.4.1.tgz#099a78184bc07b034048a8332229c2ccca1e3e62"
+  integrity sha512-ADy1ztN074YkWbHi8ojJVFe3vAanO/lrzMGZWUClIP7oDD/Pjy2vrASraUP+2EVCfIiTtCW4FChVow01XneivA==
+  dependencies:
+    underscore ">=1.8.3"
+
+backbone@>=1.0.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/backbone/-/backbone-1.5.0.tgz#3f20e4c6feb22f896131bcc58eb599b9555e8744"
+  integrity sha512-RPKlstw5NW+rD2X4PnEnvgLhslRnXOugXw2iBloHkPMgOxvakP1/A+tZIGM3qCm8uvZeEf8zMm0uvcK1JwL+IA==
+  dependencies:
+    underscore ">=1.8.3"
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -658,6 +705,16 @@ code-red@^1.0.3:
     acorn "^8.10.0"
     estree-walker "^3.0.3"
     periscopic "^3.1.0"
+
+codemirror-formatting@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/codemirror-formatting/-/codemirror-formatting-1.0.0.tgz#879cc1fdd9018343c1d5511769ce5360d705ebf2"
+  integrity sha512-br9yM6eJI3pJHekEnoyHaBEb1B7XxxDjju+vRyBe8QGLp5saTIXXkZ+eFCTqXSAtI8QEZDFVEX2/SOjH2sVWRQ==
+
+codemirror@^5.63.0:
+  version "5.65.15"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.65.15.tgz#66899278f44a7acde0eb641388cd563fe6dfbe19"
+  integrity sha512-YC4EHbbwQeubZzxLl5G4nlbLc1T21QTrKGaOal/Pkm9dVDMZXMH7+ieSPEOZCtO9I68i8/oteJKOxzHC2zR+0g==
 
 color-convert@^2.0.1:
   version "2.0.1"
@@ -1083,6 +1140,24 @@ graceful-fs@^4.1.3:
   version "4.2.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
+
+grapesjs-preset-webpage@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/grapesjs-preset-webpage/-/grapesjs-preset-webpage-1.0.3.tgz#87c19779f0615b8b4b986782112e9c48727589ef"
+  integrity sha512-C0VOKLAdhv0j1f81c6F2uk3JpJvxgXl5DeHUtDa5qGf/HZzaCmQxsvd8Re3Oh5Cah4uUCqoi9uB5FYx3hLND2w==
+
+grapesjs@^0.21.5:
+  version "0.21.5"
+  resolved "https://registry.yarnpkg.com/grapesjs/-/grapesjs-0.21.5.tgz#c87ee312fec6fec12c73251283447ab68105afe7"
+  integrity sha512-CKUIxWX/fmCaHVbZ4Li0pLIpYBOE4FvgKkP72+s5hLqmqhInL6oo4EnhWMszxZYlcJc5TYySo+6JwslknC+Wbw==
+  dependencies:
+    "@types/backbone" "^1.4.15"
+    backbone "1.4.1"
+    backbone-undo "^0.2.5"
+    codemirror "^5.63.0"
+    codemirror-formatting "^1.0.0"
+    promise-polyfill "^8.1.3"
+    underscore "^1.13.1"
 
 graphemer@^1.4.0:
   version "1.4.0"
@@ -1539,6 +1614,11 @@ pretty-format@^29.5.0:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
+promise-polyfill@^8.1.3:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.3.0.tgz#9284810268138d103807b11f4e23d5e945a4db63"
+  integrity sha512-H5oELycFml5yto/atYqmjyigJoAo3+OXwolYiH7OfQuYlAqhxNvTfiNMbV9hsC6Yp83yE5r2KTVmtrG6R9i6Pg==
+
 punycode@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.0.tgz#f67fa67c94da8f4d0cfff981aee4118064199b8f"
@@ -1865,6 +1945,11 @@ ufo@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.3.0.tgz#c92f8ac209daff607c57bbd75029e190930a0019"
   integrity sha512-bRn3CsoojyNStCZe0BG0Mt4Nr/4KF+rhFlnNXybgqt5pXHNFRlqinSoQaTrGyzE4X8aHplSb+TorH+COin9Yxw==
+
+underscore@>=1.4.4, underscore@>=1.8.3, underscore@^1.13.1:
+  version "1.13.6"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.13.6.tgz#04786a1f589dc6c09f761fc5f45b89e935136441"
+  integrity sha512-+A5Sja4HP1M08MaXya7p5LvjuM7K6q/2EaC0+iovj/wOcMsTzMvDFbasi/oSapiwOlt252IqsKqPjCl7huKS0A==
 
 undici@~5.23.0:
   version "5.23.0"

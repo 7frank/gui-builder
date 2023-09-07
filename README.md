@@ -1,18 +1,11 @@
-# create-svelte
+# overview
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+(WIP) POC of a gui builder with svelte & grapesjs, that uses some kind of ast transformer to connect custom components to grapesjs by automatically generating grapesjs components from svelte components or react components.
 
-## Creating a project
+Goals:
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- connect react | svelte "views" to grapesjs automatically
+- showcase AST capabilities
 
 ## Developing
 
