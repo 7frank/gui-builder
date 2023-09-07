@@ -16,7 +16,7 @@ export const myNewComponentTypes = (editor: Editor) => {
 					// Default attributes
 					type: 'text',
 					name: 'default-name',
-					placeholder: 'Insert text here: >' + 'before'
+					placeholder: 'Insert text here: >' + 'plugin-test-before'
 				},
 				traits: ['name', 'placeholder', { type: 'checkbox', name: 'required' }]
 			}

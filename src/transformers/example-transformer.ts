@@ -12,9 +12,11 @@ export default function transformer(
 
 		return (sourceFile: ts.SourceFile) => {
 			function visit(node: ts.Node): ts.Node {
-				if (tsInstance.isStringLiteral(node) && node.text === 'before') {
+				if (tsInstance.isStringLiteral(node) && node.text === 'plugin-test-before') {
+					console.log(node.kind);
 					return factory.createStringLiteral('after');
 				}
+
 				return tsInstance.visitEachChild(node, visit, ctx);
 			}
 			return tsInstance.visitNode(sourceFile, visit);
