@@ -1,11 +1,10 @@
-import ts from 'typescript';
 /** Changes string literal 'before' to 'after' */
-export default function transformer(program: ts.Program): ts.TransformerFactory<ts.SourceFile> {
-	const visitor = (node: ts.Node) => visitNode(node, program);
+module.exports = function transformer(program, pluginConfig, { ts }) {
+	const visitor = (node) => visitNode(node, program);
 	return (context) => (source) => ts.visitEachChild(source, visitor, context);
-}
+};
 
-function visitNode(node: ts.Node, program: ts.Program): ts.Node[] | ts.Node {
+function visitNode(node, program) {
 	// if (ts.isExportAssignment(node) && !node.isExportEquals && ts.isArrowFunction(node.expression)) {
 	//   return nameExportedArrowFunction(node, deriveUniqueName(node, program))
 	// }
