@@ -7,7 +7,10 @@ import basicBlocks from 'grapesjs-blocks-basic';
 import {onMount} from "svelte"
 	import { myNewComponentTypes } from './grapes-test-plugin';
 
-
+// https://github.com/sveltejs/svelte-preprocess/issues/537
+// this value should be replaced by the typescript compiler in case this is called for this svelte file
+const foo="plugin-test-before"
+const bar="plugin-test-before"
 
 onMount(()=>{
 	const editor = grapesjs.init({
