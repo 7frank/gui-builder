@@ -37,23 +37,24 @@ export const myNewComponentTypes = (editor: Editor) => {
 		model: {
 			defaults: {
 				// Define the default content and style of your custom component
-				content: '<div class="my-svelte-image-type">My Svelte Image Type Content</div>',
-				style: {}
+				//content: '<div class="my-svelte-image-type">My Svelte Image Type Content</div>',
+				//style: {}
 			}
 		},
 		view: {
 			init() {
 				// Render the Svelte component within the custom component's view
-				this.mySvelteComponent = new Image({
-					target: this.el
-					// Optionally pass props to your Svelte component
-					// props: {},
-				});
-				console.log('Image view init', this.mySvelteComponent);
+				setTimeout(() => {
+					this.mySvelteComponent = new Image({
+						target: this.el
+						// Optionally pass props to your Svelte component
+						// props: {},
+					});
+				}, 1);
 			},
 			remove() {
 				// Clean up the Svelte component when the custom component is removed
-				//this.mySvelteComponent.$destroy();
+				this.mySvelteComponent?.$destroy();
 				return this;
 			}
 		}
