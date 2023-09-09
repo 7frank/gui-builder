@@ -24,7 +24,11 @@ https://github.com/sveltejs/svelte-preprocess/issues/488
 
 we might be able to [create a preprocessor ourselves](https://sveltesociety.dev/recipes/build-setup/writing-your-own-preprocessors) butfor now it will be easier to patch the source files that it uses our compiler
 
-- svelte-gui-builder/node_modules/svelte-preprocess/dist/transformers/typescript.js
+- [patch this file](./node_modules/svelte-preprocess/dist/transformers/typescript.js)
 
-> // const typescript_1 = **importDefault(require("typescript"));
-> const typescript_1 = **importDefault(require('ts-patch/compiler'));;
+```javascript
+// const typescript_1 = __importDefault(require("typescript"));
+const typescript_1 = __importDefault(require('ts-patch/compiler'));
+```
+
+TODO create actual patch file
