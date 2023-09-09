@@ -33,6 +33,9 @@ export const myNewComponentTypes = (editor: Editor) => {
 		content: { type: 'my-input-type' }
 	});
 
+	/**
+	 * 	 FIXME currently we reattach the svelte element in onRender, but this way when we want to delete the element it stays and we have to refresh the page
+	 */
 	const mySvelteImageType: AddComponentTypeOptions = {
 		model: {
 			defaults: {
@@ -43,6 +46,9 @@ export const myNewComponentTypes = (editor: Editor) => {
 		},
 		view: {
 			init() {
+				this.renderSvelteComponent();
+			},
+			renderSvelteComponent() {
 				// Render the Svelte component within the custom component's view
 				setTimeout(() => {
 					this.mySvelteComponent = new Image({
@@ -50,11 +56,19 @@ export const myNewComponentTypes = (editor: Editor) => {
 						// Optionally pass props to your Svelte component
 						// props: {},
 					});
+					setTimeout(() => {
+						this.svelteElement = this.el.querySelector(':first-child');
+					}, 1);
 				}, 1);
+			},
+			onRender() {
+				if (this.svelteElement) this.el.appendChild(this.svelteElement);
 			},
 			remove() {
 				// Clean up the Svelte component when the custom component is removed
 				this.mySvelteComponent?.$destroy();
+
+				// delete this.svelteElement;
 				return this;
 			}
 		}
