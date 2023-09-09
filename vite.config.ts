@@ -1,6 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-// TODO find out if we want to use sveltePreprocess over vitePreprocess
-// import autoPreprocess from 'svelte-preprocess';
+
 import { defineConfig } from 'vitest/config';
 import typescript from '@rollup/plugin-typescript';
 
