@@ -6,13 +6,11 @@
 	import basicBlocks from 'grapesjs-blocks-basic';
 	import { onMount } from 'svelte';
 	import { myNewComponentTypes } from './grapes-test-plugin';
-	import Image from './components/Image.svelte';
 
 	// https://github.com/sveltejs/svelte-preprocess/issues/537
 	// this value should be replaced by the typescript compiler in case this is called for this svelte file
 	const foo = 'plugin-test-before';
 
-	// customElements.define('my-svelte-image', Image.element);
 
 	onMount(() => {
 		const editor = grapesjs.init({
@@ -37,8 +35,6 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<Image></Image>
-<my-svelte-image></my-svelte-image>
 
 <div id="guiBuilder" />
 

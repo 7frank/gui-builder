@@ -1,5 +1,3 @@
-<svelte:options customElement="my-svelte-image" />
-
 <script lang="ts">
 
 // https://pbs.twimg.com/profile_images/971055567035883520/8uCAWl8v_400x400.jpg
