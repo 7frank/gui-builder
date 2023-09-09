@@ -1,0 +1,14 @@
+diff --git a/dist/transformers/typescript.js b/dist/transformers/typescript.js
+index 261ac0727cbe82e9cf8f237c03404dc3be805ad1..c531465e5798f64f0f0c3ef7513c1ef0a93ac0a6 100644
+--- a/dist/transformers/typescript.js
++++ b/dist/transformers/typescript.js
+@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.transformer = exports.loadTsconfig = void 0;
+ const path_1 = require("path");
+-const typescript_1 = __importDefault(require("typescript"));
++// const typescript_1 = __importDefault(require("typescript"));
++const typescript_1 = __importDefault(require('ts-patch/compiler'));
+ const compiler_1 = require("svelte/compiler");
+ const magic_string_1 = __importDefault(require("magic-string"));
+ const sorcery_1 = require("sorcery");

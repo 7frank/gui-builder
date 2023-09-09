@@ -49,5 +49,10 @@
 		"grapesjs": "^0.21.5",
 		"grapesjs-blocks-basic": "^1.0.2",
 		"grapesjs-preset-webpage": "^1.0.3"
+	},
+	"pnpm": {
+		"patchedDependencies": {
+			"svelte-preprocess@5.0.4": "patches/svelte-preprocess@5.0.4.patch"
+		}
 	}
 }
