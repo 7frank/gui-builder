@@ -18,6 +18,8 @@ pnpm dev
 pnpm dev -- --open
 ```
 
+- run `pnpm ast --ẁatch` if you want to make changes to the typescript transformers.
+
 ## Building
 
 To create a production version of your app:

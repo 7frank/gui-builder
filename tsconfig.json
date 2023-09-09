@@ -10,7 +10,8 @@
 		"sourceMap": true,
 		"strict": true,
 		"plugins": [
-			{ "transform": "./dist/example-transformer.cjs" }
+			{ "transform": "./dist/svelte-component-transformer.cjs" }
+			// { "transform": "./dist/example-transformer.cjs" }
 			//{ "transform": "ts-transformer-export-default-name" },
 			//{ "transform": "./src/transformers/example-transformer.ts" }
 		]
