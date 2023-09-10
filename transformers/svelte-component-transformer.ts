@@ -1,7 +1,13 @@
 import type * as ts from 'typescript';
 import type { TransformerExtras, PluginConfig } from 'ts-patch';
 
-import { createGenerator, Settings, createParser } from 'ts-json-schema-generator';
+import {
+	createGenerator,
+	Settings,
+	createParser,
+	createFormatter,
+	SchemaGenerator
+} from 'ts-json-schema-generator';
 
 /** Changes string literal 'before' to 'after' */
 export default function transformer(
@@ -18,24 +24,39 @@ export default function transformer(
 				node.modifiers &&
 				node.modifiers.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
 			) {
+				// see instead how we can access the parser part of the package directly
+				// https://github.com/vega/ts-json-schema-generator/blob/next/factory/generator.ts
+
 				for (const declaration of node.declarationList.declarations) {
 					if (ts.isIdentifier(declaration.name)) {
 						const variableName = declaration.name.text;
 						const typeNode = declaration.type;
 						if (typeNode) {
-							const generator = createGenerator({
-								tsconfig: '../tsconfig.json', // Replace with your tsconfig.json path
-								type: variableName,
-								topRef: true
-							});
-							const jsonSchema = generator.createSchema(typeNode.getText());
-							console.log(
-								`Exported Variable: ${variableName}, JSON Schema: ${JSON.stringify(
-									jsonSchema,
-									null,
-									2
-								)}`
-							);
+							console.log(`Exported Variable: ${variableName}`);
+
+							const config = {};
+							const parser = createParser(program as any, config);
+
+							const formatter = createFormatter(config);
+
+							const generator = new SchemaGenerator(program as any, parser, formatter, config);
+							const jsonSchema = generator.createSchema();
+
+							console.log(JSON.stringify(jsonSchema, null, 2));
+
+							// const generator = createGenerator({
+							// 	tsconfig: '../tsconfig.json', // Replace with your tsconfig.json path
+							// 	type: variableName,
+							// 	topRef: true
+							// });
+							// const jsonSchema = generator.createSchema(typeNode.getText());
+							// console.log(
+							// 	`Exported Variable: ${variableName}, JSON Schema: ${JSON.stringify(
+							// 		jsonSchema,
+							// 		null,
+							// 		2
+							// 	)}`
+							// );
 						}
 					}
 				}
