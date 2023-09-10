@@ -35,6 +35,7 @@
 		"svelte": "^4.0.5",
 		"svelte-check": "^3.4.3",
 		"svelte-preprocess": "^5.0.4",
+		"ts-json-schema-generator": "^1.3.0",
 		"ts-node": "^10.9.1",
 		"ts-patch": "^3.0.2",
 		"ts-transformer-export-default-name": "^0.1.0",
