@@ -4,8 +4,8 @@ import type { TransformerExtras, PluginConfig } from 'ts-patch';
 import { createParser, createFormatter, SchemaGenerator } from 'ts-json-schema-generator';
 import {
 	createGrapesType,
-	getRelativeImportPath,
-	writeToFileSystem
+	createPluginsImportFile,
+	writeComponentToFileSystem
 } from './createGrapesjsTemplate';
 
 /** Changes string literal 'before' to 'after' */
@@ -114,7 +114,9 @@ export default function transformer(
 
 			const str = createGrapesType({ fileName: sourceFile.fileName });
 
-			writeToFileSystem(str, sourceFile.fileName);
+			writeComponentToFileSystem(str, sourceFile.fileName);
+
+			createPluginsImportFile();
 
 			return result;
 		};

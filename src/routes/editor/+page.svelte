@@ -12,11 +12,14 @@
 	const foo = 'plugin-test-before';
 
 
-	onMount(() => {
+	onMount(async () => {
+
+		const  generatedPlugins=  await import("../../../.generated/plugin")
+ 
 		const editor = grapesjs.init({
 			container: '#guiBuilder',
 			// ...
-			plugins: [ myNewComponentTypes,basicBlocks, plugin],
+			plugins: [generatedPlugins.svelteGrapesComponentsPlugin, myNewComponentTypes,basicBlocks, plugin],
 			pluginsOpts: {
 				[plugin]: {
 					/* options */

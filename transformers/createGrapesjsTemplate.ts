@@ -20,9 +20,9 @@ export function createGrapesType({ fileName }: { fileName: string }) {
 	const kebab = kebabCase(f);
 	const camel = camelCase(f);
 	return `import type { AddComponentTypeOptions } from 'grapesjs';
-import _Component from '${importPath}';
+import _Component from '../src/${importPath}';
 
-export const mySvelteImageType: AddComponentTypeOptions = {
+export const ${camel}Type: AddComponentTypeOptions = {
 	model: {
 		defaults: {}
 	},
@@ -52,7 +52,7 @@ export const mySvelteImageType: AddComponentTypeOptions = {
 };`;
 }
 
-export function writeToFileSystem(content: string, fileName: string) {
+export function writeComponentToFileSystem(content: string, fileName: string) {
 	const outDir = path.resolve(process.cwd(), '.generated');
 
 	if (!fs.existsSync(outDir)) {
@@ -63,7 +63,40 @@ export function writeToFileSystem(content: string, fileName: string) {
 
 	const camel = camelCase(f);
 
-	const outFile = path.resolve(outDir, camel);
+	const outFile = path.resolve(outDir, camel + '.ts');
 
 	fs.writeFileSync(outFile, content, 'utf8');
+}
+
+export function createPluginsImportFile() {
+	const tpl = `
+
+	import type { Editor } from 'grapesjs';
+
+import { imageType } from './image';
+
+export const svelteGrapesComponentsPlugin = (editor: Editor) => {
+	editor.DomComponents.addType('x-image', imageType);
+
+	editor.Blocks.add('x-image-block', {
+		category: 'svelte',
+		label: 'x-image',
+		attributes: {
+			//class: 'fa fa-text'
+		},
+		content: { type: 'x-image' }
+	});
+};
+
+	`;
+
+	const outDir = path.resolve(process.cwd(), '.generated');
+
+	if (!fs.existsSync(outDir)) {
+		fs.mkdirSync(outDir);
+	}
+
+	const outFile = path.resolve(outDir, 'plugin.ts');
+
+	fs.writeFileSync(outFile, tpl, 'utf8');
 }
