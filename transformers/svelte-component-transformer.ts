@@ -1,13 +1,7 @@
 import type * as ts from 'typescript';
 import type { TransformerExtras, PluginConfig } from 'ts-patch';
 
-import {
-	createGenerator,
-	Settings,
-	createParser,
-	createFormatter,
-	SchemaGenerator
-} from 'ts-json-schema-generator';
+import { createParser, createFormatter, SchemaGenerator } from 'ts-json-schema-generator';
 
 /** Changes string literal 'before' to 'after' */
 export default function transformer(
@@ -32,31 +26,23 @@ export default function transformer(
 						const variableName = declaration.name.text;
 						const typeNode = declaration.type;
 						if (typeNode) {
-							console.log(`Exported Variable: ${variableName}`);
+							console.log(`---------------------------------`);
 
+							console.log(`Exporting Variable: ${variableName}`);
+							console.log(typeNode.getText());
 							const config = {};
 							const parser = createParser(program as any, config);
 
 							const formatter = createFormatter(config);
 
 							const generator = new SchemaGenerator(program as any, parser, formatter, config);
-							const jsonSchema = generator.createSchema();
+							try {
+								const jsonSchema = generator.createSchema(typeNode.getText());
 
-							console.log(JSON.stringify(jsonSchema, null, 2));
-
-							// const generator = createGenerator({
-							// 	tsconfig: '../tsconfig.json', // Replace with your tsconfig.json path
-							// 	type: variableName,
-							// 	topRef: true
-							// });
-							// const jsonSchema = generator.createSchema(typeNode.getText());
-							// console.log(
-							// 	`Exported Variable: ${variableName}, JSON Schema: ${JSON.stringify(
-							// 		jsonSchema,
-							// 		null,
-							// 		2
-							// 	)}`
-							// );
+								console.log(variableName, JSON.stringify(jsonSchema, null, 2));
+							} catch (e) {
+								console.warn(variableName, e.message);
+							}
 						}
 					}
 				}
