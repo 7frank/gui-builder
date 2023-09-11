@@ -9,6 +9,19 @@ export default function transformer(
 	pluginConfig: PluginConfig,
 	{ ts }: TransformerExtras
 ) {
+	const checker = program.getTypeChecker();
+
+	/** Serialize a symbol into a json object */
+	function serializeSymbol(symbol: ts.Symbol) {
+		return {
+			name: symbol.getName(),
+			documentation: ts.displayPartsToString(symbol.getDocumentationComment(checker)),
+			type: checker.typeToString(
+				checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!)
+			)
+		};
+	}
+
 	return (ctx: ts.TransformationContext) => {
 		const { factory } = ctx;
 
@@ -24,25 +37,43 @@ export default function transformer(
 				for (const declaration of node.declarationList.declarations) {
 					if (ts.isIdentifier(declaration.name)) {
 						const variableName = declaration.name.text;
-						const typeNode = declaration.type;
-						if (typeNode) {
-							console.log(`---------------------------------`);
+						console.log('variableName', variableName);
 
-							console.log(`Exporting Variable: ${variableName}`);
-							console.log(typeNode.getText());
-							const config = {};
-							const parser = createParser(program as any, config);
+						const symbol = checker.getSymbolAtLocation(declaration.name);
 
-							const formatter = createFormatter(config);
+						if (symbol) {
+							//console.log(serializeSymbol(symbol));
 
-							const generator = new SchemaGenerator(program as any, parser, formatter, config);
-							try {
-								const jsonSchema = generator.createSchema(typeNode.getText());
+							const type = checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!);
 
-								console.log(variableName, JSON.stringify(jsonSchema, null, 2));
-							} catch (e) {
-								console.warn(variableName, e.message);
+							const typeNode = checker.typeToTypeNode(
+								type,
+								node,
+								ts.NodeBuilderFlags.NoTruncation | ts.NodeBuilderFlags.InTypeAlias
+							); // declaration.type;
+
+							if (!typeNode) {
+								console.warn(variableName, 'no type node from type');
+								continue;
 							}
+
+							// console.log({ typeNode });
+							// const typeAsJson = typeNode.getText();
+							// console.log(typeAsJson);
+
+							// const config = {};
+							// const parser = createParser(program as any, config);
+
+							// const formatter = createFormatter(config);
+
+							// const generator = new SchemaGenerator(program as any, parser, formatter, config);
+							// try {
+							// 	const jsonSchema = generator.createSchema(typeNode.getText());
+
+							// 	console.log(variableName, JSON.stringify(jsonSchema, null, 2));
+							// } catch (e) {
+							// 	console.warn(variableName, e.message);
+							// }
 						}
 					}
 				}
@@ -54,6 +85,7 @@ export default function transformer(
 		return (sourceFile: ts.SourceFile) => {
 			// we only want to parse svelte files for relevant data
 			if (!sourceFile.fileName.endsWith('.svelte')) return sourceFile;
+
 			const result = ts.visitNode(sourceFile, extractExportedVariables);
 			return result;
 		};
