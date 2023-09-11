@@ -1,6 +1,5 @@
 import type { AddComponentTypeOptions } from 'grapesjs';
 import Image from '../../components/Image.svelte';
-import Button from '../../components/Button.svelte';
 
 /**
  * 	 FIXME currently we reattach the svelte element in onRender, but this way when we want to delete the element it stays and we have to refresh the page
