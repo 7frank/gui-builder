@@ -68,24 +68,34 @@ export function writeComponentToFileSystem(content: string, fileName: string) {
 	fs.writeFileSync(outFile, content, 'utf8');
 }
 
-export function createPluginsImportFile() {
+export function createPluginsImportFile(types: string[]) {
 	const tpl = `
 
 	import type { Editor } from 'grapesjs';
 
-import { imageType } from './image';
+ ${types.map((n) => `import { ${n}Type } from './${n}';`).join('\n')}
 
 export const svelteGrapesComponentsPlugin = (editor: Editor) => {
-	editor.DomComponents.addType('x-image', imageType);
 
-	editor.Blocks.add('x-image-block', {
+	${types
+		.map(
+			(n) => `
+	editor.DomComponents.addType('x-${n}', ${n}Type);
+
+	editor.Blocks.add('x-${n}-block', {
 		category: 'svelte',
-		label: 'x-image',
+		label: 'x-${n}',
 		attributes: {
 			//class: 'fa fa-text'
 		},
-		content: { type: 'x-image' }
+		content: { type: 'x-${n}' }
 	});
+	`
+		)
+		.join('\n\n')}
+
+
+	
 };
 
 	`;
