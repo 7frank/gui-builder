@@ -18,6 +18,7 @@ export default function transformer(
 			documentation: ts.displayPartsToString(symbol.getDocumentationComment(checker)),
 			type: checker.typeToString(
 				checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!)
+				// checker.getTypeAtLocation(symbol.valueDeclaration!)
 			)
 		};
 	}
@@ -42,25 +43,40 @@ export default function transformer(
 						const symbol = checker.getSymbolAtLocation(declaration.name);
 
 						if (symbol) {
-							//console.log(serializeSymbol(symbol));
+							/**
+							 * using only primitives and non - complex types for now
+							 */
+							const foo = serializeSymbol(symbol);
+							console.log(foo);
 
-							const type = checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!);
+							/**
+							 * shared code for example 2 and 3
+							 */
+							// const typeNode = declaration.type;
 
-							const typeNode = checker.typeToTypeNode(
-								type,
-								node,
-								ts.NodeBuilderFlags.NoTruncation | ts.NodeBuilderFlags.InTypeAlias
-							); // declaration.type;
+							// if (!typeNode) {
+							// 	console.warn(variableName, 'no type node from type');
+							// 	continue;
+							// }
 
-							if (!typeNode) {
-								console.warn(variableName, 'no type node from type');
-								continue;
-							}
+							/**
+							 * potentially doing something with type and type nodes
+							 */
+							//const type = checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!);
+
+							// const typeNode = checker.typeToTypeNode(
+							// 	type,
+							// 	node,
+							// 	ts.NodeBuilderFlags.NoTruncation | ts.NodeBuilderFlags.InTypeAlias
+							// ); // declaration.type;
 
 							// console.log({ typeNode });
 							// const typeAsJson = typeNode.getText();
 							// console.log(typeAsJson);
 
+							/**
+							 * ts-json-schema-generator
+							 */
 							// const config = {};
 							// const parser = createParser(program as any, config);
 
@@ -68,6 +84,8 @@ export default function transformer(
 
 							// const generator = new SchemaGenerator(program as any, parser, formatter, config);
 							// try {
+							// 	// const jsonSchema = generator.createSchemaFromNodes([typeNode as any]);
+
 							// 	const jsonSchema = generator.createSchema(typeNode.getText());
 
 							// 	console.log(variableName, JSON.stringify(jsonSchema, null, 2));
