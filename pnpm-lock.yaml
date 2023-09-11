@@ -22,6 +22,8 @@ specifiers:
   grapesjs: ^0.21.5
   grapesjs-blocks-basic: ^1.0.2
   grapesjs-preset-webpage: ^1.0.3
+  lodash.camelcase: ^4.3.0
+  lodash.kebabcase: ^4.1.1
   prettier: ^2.8.0
   prettier-plugin-svelte: ^2.10.1
   rollup-plugin-typescript2: ^0.35.0
@@ -57,6 +59,8 @@ devDependencies:
   eslint-config-prettier: 8.10.0_eslint@8.49.0
   eslint-plugin-svelte: 2.33.0_g7owmo2r4luo743w3ckblnxcl4
   esm: 3.2.25
+  lodash.camelcase: 4.3.0
+  lodash.kebabcase: 4.1.1
   prettier: 2.8.8
   prettier-plugin-svelte: 2.10.1_6txzok57cptboxg2qp7a6vrhly
   rollup-plugin-typescript2: 0.35.0_typescript@5.2.2
@@ -1802,6 +1806,14 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
+    dev: true
+
+  /lodash.camelcase/4.3.0:
+    resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
+    dev: true
+
+  /lodash.kebabcase/4.1.1:
+    resolution: {integrity: sha512-N8XRTIMMqqDgSy4VLKPnJ/+hpGZN+PHQiJnSenYqPaVV/NCqEogTnAdZLQiGKhxX+JCs8waWq2t1XHWKOmlY8g==}
     dev: true
 
   /lodash.merge/4.6.2:

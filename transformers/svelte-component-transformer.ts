@@ -2,6 +2,11 @@ import type * as ts from 'typescript';
 import type { TransformerExtras, PluginConfig } from 'ts-patch';
 
 import { createParser, createFormatter, SchemaGenerator } from 'ts-json-schema-generator';
+import {
+	createGrapesType,
+	getRelativeImportPath,
+	writeToFileSystem
+} from './createGrapesjsTemplate';
 
 /** Changes string literal 'before' to 'after' */
 export default function transformer(
@@ -104,7 +109,13 @@ export default function transformer(
 			// we only want to parse svelte files for relevant data
 			if (!sourceFile.fileName.endsWith('.svelte')) return sourceFile;
 
+			console.log(sourceFile.fileName);
 			const result = ts.visitNode(sourceFile, extractExportedVariables);
+
+			const str = createGrapesType({ fileName: sourceFile.fileName });
+
+			writeToFileSystem(str, sourceFile.fileName);
+
 			return result;
 		};
 	};

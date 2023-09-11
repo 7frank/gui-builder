@@ -29,6 +29,8 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
 		"esm": "^3.2.25",
+		"lodash.camelcase": "^4.3.0",
+		"lodash.kebabcase": "^4.1.1",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
 		"rollup-plugin-typescript2": "^0.35.0",
