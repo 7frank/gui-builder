@@ -37,6 +37,8 @@ export default function transformer(
 	return (ctx: ts.TransformationContext) => {
 		const { factory } = ctx;
 
+		const props: string[] = [];
+
 		function extractExportedVariables(node: ts.Node): ts.Node {
 			if (
 				ts.isVariableStatement(node) &&
@@ -50,6 +52,8 @@ export default function transformer(
 					if (ts.isIdentifier(declaration.name)) {
 						const variableName = declaration.name.text;
 						console.log('variableName', variableName);
+
+						props.push(variableName);
 
 						const symbol = checker.getSymbolAtLocation(declaration.name);
 
@@ -121,7 +125,7 @@ export default function transformer(
 			console.log(sourceFile.fileName);
 			const result = ts.visitNode(sourceFile, extractExportedVariables);
 
-			const str = createGrapesType({ fileName: sourceFile.fileName });
+			const str = createGrapesType({ fileName: sourceFile.fileName, traits: props });
 
 			writeComponentToFileSystem(str, sourceFile.fileName);
 

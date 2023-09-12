@@ -13,7 +13,13 @@ export function getRelativeImportPath(output: string, absolutePathToFile: string
 	return arr.join('/');
 }
 
-export function createGrapesType({ fileName }: { fileName: string }) {
+export function createGrapesType({
+	fileName,
+	traits = []
+}: {
+	fileName: string;
+	traits?: string[];
+}) {
 	const importPath = getRelativeImportPath('', fileName);
 
 	const f = path.basename(fileName, '.svelte');
@@ -24,7 +30,22 @@ import _Component from '../src/${importPath}';
 
 export const ${camel}Type: AddComponentTypeOptions = {
 	model: {
-		defaults: {}
+		defaults: {
+			traits:[
+				${traits.map((it) => `'${it}'`).join(',')}
+			]
+		},
+		updated(property, value, prevValue) {
+			console.log('Local hook: model.updated',
+				'property', property, 'value', value, 'prevValue', prevValue);
+		},	
+		handleTypeChange() {
+			console.log('Input type changed to: ', this.getAttributes());
+		},
+
+		init() {
+			${traits.map((it) => `this.on('change:attributes:${it}', this.handleTypeChange);`).join(';')}
+		},
 	},
 	view: {
 		init() {
