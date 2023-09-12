@@ -71,6 +71,11 @@ async function helloService(dashboard,fetch):Promise<void> {
     });
 </script>
 
+
+<h2>
+    https://stackoverflow.com/questions/55132485/how-can-i-get-the-transpiled-code-from-the-monaco-editor
+    <br/>we might want to use the transpiled code for some experiments
+</h2>
 <div bind:this={divEl} class="monaco" />
 
 <style>
