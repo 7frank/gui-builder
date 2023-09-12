@@ -58,8 +58,16 @@ export const ${camel}Type: AddComponentTypeOptions = {
 		renderSvelteComponent() {
 			// Render the Svelte component within the custom component's view
 			setTimeout(() => {
+
+				const t=this.model.get('traits')
+				
+				${traits.map((it) => `const ${it} = t.where({name: '${it}'})[0].get('value');`).join(';')}
+
 				this.mySvelteComponent = new _Component({
-					target: this.el
+					target: this.el,
+					props: {
+						${traits.map((it) => `${it}`).join(',')}
+					}	
 				});
 				setTimeout(() => {
 					this.svelteElement = this.el.querySelector(':first-child');
