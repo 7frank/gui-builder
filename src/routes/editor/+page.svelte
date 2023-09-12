@@ -1,5 +1,6 @@
 <script lang="ts">
 	import GrapesJsEditor from "../../features/editor/GrapesJsEditor.svelte"
+	import MonacoEditor from "../../features/editor/MonacoEditor.svelte"
 </script>
 
 <svelte:head>
@@ -9,6 +10,7 @@
 
 
 <GrapesJsEditor></GrapesJsEditor>
+<MonacoEditor></MonacoEditor>
 
 <style>
 </style>
