@@ -8,7 +8,7 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	// Note: we use sveltePreprocess, to be abler to override the typescript compiler by applying a patch to the compiled source files
-	preprocess: [sveltePreprocess({})], // vitePreprocess()
+	preprocess: [sveltePreprocess()], // vitePreprocess()
 
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.

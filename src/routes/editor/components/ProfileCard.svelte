@@ -7,6 +7,7 @@
   </script>
   
   <div class="profile-card">
+
     <img src={userImageUrl} alt={userName} class="profile-image" />
     <div class="profile-details">
       <h3 class="profile-name">{userName}</h3>
@@ -15,7 +16,7 @@
   </div>
   
   <style>
-    /* CSS styles for the profile card */
+
     .profile-card {
       display: flex;
       align-items: center;
@@ -23,6 +24,7 @@
       padding: 16px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
     }
   
     .profile-image {

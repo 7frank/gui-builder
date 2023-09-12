@@ -8,7 +8,7 @@
 	import basicBlocks from 'grapesjs-blocks-basic';
 	import { onMount } from 'svelte';
 	import { myNewComponentTypes } from './plugins/grapes-test-plugin';
-	
+	import {syncCss} from "./sync-css.ts"
 
 	// https://github.com/sveltejs/svelte-preprocess/issues/537
 	// this value should be replaced by the typescript compiler in case this is called for this svelte file
@@ -16,6 +16,9 @@
 
 
 	onMount(async () => {
+
+		// TODO in development only
+		syncCss()
 
 		const  generatedPlugins=  await import("../../../.generated/plugin")
  
