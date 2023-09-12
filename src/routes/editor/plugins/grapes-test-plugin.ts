@@ -17,5 +17,5 @@ export const myNewComponentTypes = (editor: Editor) => {
 	 * example to use custom trait types, we could later use svelte components for this as well but probably never will
 	 */
 
-	editor.TraitManager.addType('my-asset-select-type', assetTrait);
+	editor.TraitManager.addType('my-asset-select-type', assetTrait(editor));
 };
