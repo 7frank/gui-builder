@@ -26,11 +26,35 @@
 				[plugin]: {
 					/* options */
 				}
-			}
+			},
 			// or
 			//   plugins: [
 			//     editor => plugin(editor, { /* options */ }),
 			//   ],
+
+
+			assetManager: {
+				assets: [
+				'http://placehold.it/350x250/78c5d6/fff/image1.jpg',
+				// Pass an object with your properties
+				{
+					type: 'image',
+					src: 'http://placehold.it/350x250/459ba8/fff/image2.jpg',
+					height: 350,
+					width: 250,
+					name: 'displayName1'
+				},
+				{
+					// As the 'image' is the base type of assets, omitting it will
+					// be set as `image` by default
+					src: 'https://media1.giphy.com/media/9d3LQ6TdV2Flo8ODTU/giphy.gif?cid=6c09b952qz58pbx4albr0f0py1hhu1dhbshrqg0lecpxl0vw&ep=v1_gifs_search&rid=giphy.gif&ct=g',
+					height: 350,
+					width: 250,
+					name: 'displayName2'
+				},
+				],
+		}
+
 		});
 	});
 </script>
