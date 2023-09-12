@@ -35,12 +35,12 @@ export const ${camel}Type: AddComponentTypeOptions = {
 				${traits.map((it) => `'${it}'`).join(',')}
 			]
 		},
-		handleTypeChange(traitName) {
+		handleTypeChange(traitName:string) {
 
 			const newValue=this.getAttributes()[traitName]
 			
 
-			const sv=this.view?.mySvelteComponent
+			const sv=(this.view as any)?.mySvelteComponent
 			console.log(sv,"trait", traitName, "changed to:", newValue);
 			if (sv) sv[traitName]=newValue
 		},
@@ -61,7 +61,9 @@ export const ${camel}Type: AddComponentTypeOptions = {
 
 				const t=this.model.get('traits')
 				
-				${traits.map((it) => `const ${it} = t.where({name: '${it}'})[0].get('value');`).join(';')}
+				${traits
+					.map((it) => `const ${it} = t?t.where({name: '${it}'})[0].get('value'):undefined;`)
+					.join(';')}
 
 				this.mySvelteComponent = new _Component({
 					target: this.el,
