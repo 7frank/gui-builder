@@ -13,6 +13,28 @@
     let editor: monaco.editor.IStandaloneCodeEditor;
     let Monaco;
 
+    const value =
+	/* set from `myEditor.getModel()`: */
+	`// in case we want to reuse services, we will have to add a mapping for request and response but that is overkill
+// type Req={value:string,src:string}[]
+type Res={key:number,value:string}[]
+async function helloService(dashboard,fetch):Promise<void> {
+
+
+	// dashboard could relate to a typescript interface that is generated / updated 
+	// when assigning ids to a widget
+	// enabling possible autocomplete
+
+	const val=dashboard.get("#user-name","value")
+	const src= dashboard.get("#theImage","src")
+   
+   const res= await fetch({val,src})
+
+	dashboard.set("#theResult",res)
+
+}`;
+
+
     onMount(async () => {
     
         // https://dev.to/lawrencecchen/monaco-editor-svelte-kit-572
@@ -37,9 +59,10 @@
         };
 
         Monaco = await import('monaco-editor');
-        editor = Monaco.editor.create(divEl, {
-            value: ['function x() {', '\tconsole.log("Hello world!");', '}'].join('\n'),
-            language: 'javascript'
+        const myEditor = Monaco.editor.create(divEl, {
+            value,
+            language: 'typescript',
+            automaticLayout: true
         });
 
         return () => {
@@ -53,7 +76,7 @@
 <style>
 
 .monaco{ 
-height:200px;
+height:600px;
 
 }
 
