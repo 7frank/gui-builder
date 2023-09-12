@@ -7,6 +7,9 @@ Goals:
 - connect react | svelte "views" to grapesjs automatically
 - showcase AST capabilities
 
+- (maybe) find out how to use monaco editor for behaviour
+- (maybe) add headless cms / firebase / superbase to provide some kind of backend / storage
+
 ## how to use this?
 
 - create a new svelte component inside the "components" folder
