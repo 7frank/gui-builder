@@ -35,16 +35,20 @@ export const ${camel}Type: AddComponentTypeOptions = {
 				${traits.map((it) => `'${it}'`).join(',')}
 			]
 		},
-		updated(property, value, prevValue) {
-			console.log('Local hook: model.updated',
-				'property', property, 'value', value, 'prevValue', prevValue);
-		},	
-		handleTypeChange() {
-			console.log('Input type changed to: ', this.getAttributes());
+		handleTypeChange(traitName) {
+
+			const newValue=this.getAttributes()[traitName]
+			
+
+			const sv=this.view?.mySvelteComponent
+			console.log(sv,"trait", traitName, "changed to:", newValue);
+			if (sv) sv[traitName]=newValue
 		},
 
 		init() {
-			${traits.map((it) => `this.on('change:attributes:${it}', this.handleTypeChange);`).join(';')}
+			${traits
+				.map((it) => `this.on('change:attributes:${it}', ()=>this.handleTypeChange('${it}'));`)
+				.join(';')}
 		},
 	},
 	view: {
