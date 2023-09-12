@@ -32,7 +32,8 @@
 			//     editor => plugin(editor, { /* options */ }),
 			//   ],
 
-
+			// disable storageManager for a moment to update assets when adding them here
+			//storageManager: false,
 			assetManager: {
 				assets: [
 				'http://placehold.it/350x250/78c5d6/fff/image1.jpg',
