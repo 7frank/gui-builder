@@ -1,6 +1,6 @@
 <script lang="ts">
-	import GrapesJsEditor from "../../features/editor/GrapesJsEditor.svelte"
-	import MonacoEditor from "../../features/editor/MonacoEditor.svelte"
+	import GrapesJsEditor from '../../features/editor/GrapesJsEditor.svelte';
+	import MonacoEditor from '../../features/editor/MonacoEditor.svelte';
 </script>
 
 <svelte:head>
@@ -8,9 +8,8 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-
-<GrapesJsEditor></GrapesJsEditor>
-<MonacoEditor></MonacoEditor>
+<GrapesJsEditor />
+<MonacoEditor />
 
 <style>
 </style>
