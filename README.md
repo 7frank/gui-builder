@@ -38,3 +38,11 @@ pnpm build
 You can preview the production build with `pnpm preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Links
+
+- https://gjs.market/
+- https://grapesjs.com/docs/api/
+- https://kit.svelte.dev/
+- https://www.npmjs.com/package/ts-patch
+- https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
