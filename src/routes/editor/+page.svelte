@@ -7,6 +7,7 @@
 	import plugin from 'grapesjs-preset-webpage';
 	import basicBlocks from 'grapesjs-blocks-basic';
 	import { onMount } from 'svelte';
+	import { myNewComponentTypes } from './plugins/grapes-test-plugin';
 	
 
 	// https://github.com/sveltejs/svelte-preprocess/issues/537
@@ -21,7 +22,7 @@
 		const editor = grapesjs.init({
 			container: '#guiBuilder',
 			// ...
-			plugins: [generatedPlugins.svelteGrapesComponentsPlugin,basicBlocks, plugin],
+			plugins: [generatedPlugins.svelteGrapesComponentsPlugin,basicBlocks, plugin,myNewComponentTypes],
 			pluginsOpts: {
 				[plugin]: {
 					/* options */

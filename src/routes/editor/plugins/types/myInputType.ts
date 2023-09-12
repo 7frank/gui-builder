@@ -14,10 +14,11 @@ export const myInputType: AddComponentTypeOptions = {
 			attributes: {
 				// Default attributes
 				type: 'text',
+				src: 'https://',
 				name: 'default-name',
 				placeholder: 'Insert text here: ' + 'plugin-test-before'
 			},
-			traits: ['name', 'placeholder', { type: 'checkbox', name: 'required' }]
+			traits: ['name', 'placeholder', { name: 'src', type: 'my-asset-select-type' }]
 		}
 	}
 };
