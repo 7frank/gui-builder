@@ -52,7 +52,8 @@
 	"dependencies": {
 		"grapesjs": "^0.21.5",
 		"grapesjs-blocks-basic": "^1.0.2",
-		"grapesjs-preset-webpage": "^1.0.3"
+		"grapesjs-preset-webpage": "^1.0.3",
+		"ts-morph": "^23.0.0"
 	},
 	"pnpm": {
 		"patchedDependencies": {
