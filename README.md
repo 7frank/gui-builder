@@ -28,7 +28,7 @@ pnpm dev
 pnpm dev -- --open
 ```
 
-- run `pnpm ast --ẁatch` if you want to make changes to the typescript transformers.
+- run `pnpm ast:watch` if you want to make changes to the typescript transformers.
 
 ## Building
 

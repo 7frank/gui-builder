@@ -14,5 +14,7 @@ export default defineConfig({
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
-	server: { fs: { allow: ['.generated'] } }
+	server: {
+		fs: { allow: ['.generated'] }
+	}
 });

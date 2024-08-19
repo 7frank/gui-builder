@@ -4,6 +4,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"ast": "./node_modules/.bin/tsup ./transformers --format cjs",
+		"ast:watch": "./node_modules/.bin/tsup ./transformers --format cjs --watch",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",
