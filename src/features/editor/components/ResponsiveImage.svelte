@@ -9,7 +9,7 @@
 	const defaultImage =
 		'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
 
-	let childElement;
+	let childElement:HTMLElement;
 
 	// Function to observe parent element size
 	function observeParentElementSize(child: HTMLElement) {
@@ -24,8 +24,9 @@
 				child.style.height = `${height - 20}px`;
 			}
 		});
-
+		
 		// Start observing the parent element
+		if (parent)
 		resizeObserver.observe(parent);
 	}
 

@@ -2,10 +2,10 @@
 	/**
 	 * The Caption.
 	 */
-	export let caption = 'This is a svelte button';
+	export let data = {foo:1,bar:"baz"};
 </script>
 
-<button class="foo">{caption}</button>
+<code class="foo">{JSON.stringify(data,null, "  ")}</code>
 
 <style>
   .foo{ 
