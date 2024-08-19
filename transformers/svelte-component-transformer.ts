@@ -8,6 +8,7 @@ import {
 	createPluginsImportFile,
 	writeComponentToFileSystem
 } from './createGrapesjsTemplate';
+import { extractJsonSchema } from './extractJsonSchema';
 
 /**
  * Note: currently this is used to create a file (.generated/plugin.ts) that is incrementally getting bigger.. quite redundant but for now serves its purpose
@@ -78,11 +79,12 @@ export default function transformer(
 			// for now we only allow files that are in a components folder
 			if (!sourceFile.fileName.includes('/components/')) return sourceFile;
 
+			const jsonSchema=extractJsonSchema(program,sourceFile)
+			console.log("jsonSchema",jsonSchema)
+
+
 			console.log(sourceFile.fileName);
 			const result = ts.visitNode(sourceFile, extractExportedVariables);
-
-			// TODO use typescript-json-schema
-
 			const str = createGrapesType({ fileName: sourceFile.fileName, traits: props });
 
 			writeComponentToFileSystem(str, sourceFile.fileName);
