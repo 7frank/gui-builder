@@ -4,8 +4,9 @@
 	 */
 	export let data = {foo:{"baz":true},bar:"baz"};
 </script>
-
+Code:<br/>
 <code class="foo">{JSON.stringify(data,null, "  ")}</code>
+
 <style>
   .foo{ 
 	min-height:30px;
